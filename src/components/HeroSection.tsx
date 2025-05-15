@@ -35,70 +35,64 @@ const HeroSection: React.FC = () => {
     };
   }, []);
 
-  return (
-    <section
-      ref={sectionRef}
-      id="hero"
-      className="relative min-h-screen flex items-center bg-[#0E0E10] overflow-hidden pt-32 md:pt-56"
-    >
-      <video 
-        ref={videoRef} 
-        src="https://cdn.jsdelivr.net/gh/Desatyy/loopmind-assets@main/public/hero.mp4" 
-        autoPlay 
-        muted 
-        loop 
-        playsInline 
-        preload="auto" 
-        className="absolute inset-0 w-full h-full object-cover z-0" 
-        style={{pointerEvents: "none"}} 
-      />
+  return <section ref={sectionRef} id="hero" className="relative min-h-screen flex items-center bg-[#0E0E10] overflow-hidden">
+      <video ref={videoRef} src="https://cdn.jsdelivr.net/gh/Desatyy/loopmind-assets@main/public/hero.mp4" autoPlay muted loop playsInline preload="auto" className="absolute inset-0 w-full h-full object-cover z-0" style={{
+      pointerEvents: "none"
+    }} />
 
-      <div ref={textRef} className="relative z-10 max-w-4xl ml-6 md:ml-16 mt-20 md:mt-40 flex flex-col items-start">
-        <motion.h1
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="text-4xl md:text-6xl text-white text-left leading-tight font-bold"
-        >
-          Подбор недвижимости<br />в 2 клика
-        </motion.h1>
+    <div ref={textRef} className="relative z-10 max-w-4xl ml-6 md:ml-16 mt-0 md:mt-2 flex flex-col items-start">
+  <motion.h1
+    initial={{ opacity: 0, y: 20 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.6, delay: 0.2 }}
+    className="text-4xl md:text-6xl text-white text-left leading-tight font-bold"
+  >
+    Подбор недвижимости<br />в 2 клика
+  </motion.h1>
         
-        <motion.p 
-          className="mt-6 text-xl md:text-2xl font-medium gradient-text animate-gradient-x" 
-          initial={{opacity: 0, y: 20}} 
-          animate={{opacity: 1, y: 0}} 
-          transition={{duration: 0.6, delay: 0.4}}
-        >
+        <motion.p className="mt-6 text-xl md:text-2xl font-medium gradient-text animate-gradient-x" initial={{
+        opacity: 0,
+        y: 20
+      }} animate={{
+        opacity: 1,
+        y: 0
+      }} transition={{
+        duration: 0.6,
+        delay: 0.4
+      }}>
           ИИ-агент выдаёт идеальные объекты прямо во время<br /> 
           разговора — за 7 секунд.
         </motion.p>
         
-        <motion.div 
-          className="flex flex-col md:flex-row gap-4 md:gap-6 mt-10" 
-          initial={{opacity: 0, y: 20}} 
-          animate={{opacity: 1, y: 0}} 
-          transition={{duration: 0.6, delay: 0.6}}
-        >
-          <motion.button 
-            className="btn-primary" 
-            whileHover={{scale: 1.05}} 
-            whileTap={{scale: 0.98}}
-          >
+        <motion.div className="flex flex-col md:flex-row gap-4 md:gap-6 mt-10" initial={{
+        opacity: 0,
+        y: 20
+      }} animate={{
+        opacity: 1,
+        y: 0
+      }} transition={{
+        duration: 0.6,
+        delay: 0.6
+      }}>
+          <motion.button className="btn-primary" whileHover={{
+          scale: 1.05
+        }} whileTap={{
+          scale: 0.98
+        }}>
             <Zap className="h-5 w-5" />
             <span>Получить демо</span>
           </motion.button>
           
-          <motion.button 
-            className="btn-secondary" 
-            whileHover={{scale: 1.05}} 
-            whileTap={{scale: 0.98}}
-          >
+          <motion.button className="btn-secondary" whileHover={{
+          scale: 1.05
+        }} whileTap={{
+          scale: 0.98
+        }}>
             <span>Оставить заявку на подключение</span>
           </motion.button>
         </motion.div>
       </div>
-    </section>
-  );
+    </section>;
 };
 
 export default HeroSection;
