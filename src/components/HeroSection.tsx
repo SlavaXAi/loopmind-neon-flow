@@ -144,8 +144,7 @@ const HeroSection: React.FC = () => {
         className="relative z-10 mt-24 mb-12 max-w-[min(90%,420px)] overflow-hidden rounded-2xl ring-1 ring-white/10 shadow-[0_0_60px_-15px_rgb(0,0,0,0.6)] group"
       >
         <img
-          src="https://cdn.jsdelivr.net/gh/Desatyy/loopmind-assets@main/public/mockup-desktop.png"
-          srcSet="https://cdn.jsdelivr.net/gh/Desatyy/loopmind-assets@main/public/mockup-desktop.png 1x, https://cdn.jsdelivr.net/gh/Desatyy/loopmind-assets@main/public/mockup-desktop.png 2x"
+          src="/lovable-uploads/7a578748-6b4c-4a00-a28e-08c049d6c8b4.png"
           alt="Интерфейс LoopMind"
           className="w-full h-full object-cover"
           loading="lazy"
