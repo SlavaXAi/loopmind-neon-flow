@@ -77,7 +77,7 @@ const HeroSection: React.FC = () => {
         style={{
           pointerEvents: "none"
         }}
-        sizes="(max-width: 640px) 100vw, 100vw"
+        // Removed the invalid 'sizes' attribute
       />
 
       {/* UI-слот – динамическое позиционирование через JS */}
