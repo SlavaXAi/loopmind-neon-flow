@@ -49,8 +49,32 @@ const HeroSection: React.FC = () => {
       </div>
       
       <video ref={videoRef} src="https://cdn.jsdelivr.net/gh/Desatyy/loopmind-assets@main/public/hero.mp4" autoPlay muted loop playsInline preload="auto" className="absolute inset-0 w-full h-full object-cover z-[1]" style={{
-      pointerEvents: "none"
-    }} />
+        pointerEvents: "none"
+      }} />
+
+      {/*  UI-макет в пустой рамке hero.mp4  */}
+      <motion.div
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.5 }}
+        transition={{ duration: 0.7, ease: "easeOut" }}
+        className="absolute bottom-[6.2%] left-1/2 -translate-x-[35%]
+                w-[52%] aspect-[16/9] overflow-hidden rounded-2xl
+                ring-1 ring-white/10 shadow-[0_0_60px_-15px_rgb(0,0,0,0.6)]
+                group z-[2]"
+      >
+        <img
+          src="https://cdn.jsdelivr.net/gh/Desatyy/loopmind-assets@main/public/mockup-desktop.png"
+          alt="Интерфейс LoopMind"
+          className="w-full h-full object-cover"
+          loading="lazy"
+        />
+
+        {/* лёгкое свечение при hover — опционально */}
+        <div className="pointer-events-none absolute inset-0 opacity-0
+                      group-hover:opacity-100 transition duration-300
+                      bg-gradient-to-tr from-[#6B5CFF]/15 to-[#00E0FF]/15" />
+      </motion.div>
 
       <div ref={textRef} className="relative z-10 max-w-4xl ml-16 md:ml-32 mt-7 md:mt-[4rem] flex flex-col items-start">
         <motion.h1 initial={{
