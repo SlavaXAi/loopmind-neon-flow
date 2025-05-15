@@ -1,13 +1,16 @@
+
 import React, { useRef, useEffect } from "react";
 import { motion } from "framer-motion";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Zap } from "lucide-react";
 gsap.registerPlugin(ScrollTrigger);
+
 const HeroSection: React.FC = () => {
   const sectionRef = useRef<HTMLElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
   const textRef = useRef<HTMLDivElement>(null);
+
   useEffect(() => {
     const section = sectionRef.current;
     const textContent = textRef.current;
@@ -31,12 +34,13 @@ const HeroSection: React.FC = () => {
       ScrollTrigger.getAll().forEach(t => t.kill());
     };
   }, []);
+
   return <section ref={sectionRef} id="hero" className="relative min-h-screen flex items-center bg-[#0E0E10] overflow-hidden">
       <video ref={videoRef} src="https://cdn.jsdelivr.net/gh/Desatyy/loopmind-assets@main/public/hero.mp4" autoPlay muted loop playsInline preload="auto" className="absolute inset-0 w-full h-full object-cover z-0" style={{
       pointerEvents: "none"
     }} />
 
-      <div ref={textRef} className="relative z-10 max-w-4xl ml-6 md:ml-16 mt-24 md:mt-28 flex flex-col items-start">
+      <div ref={textRef} className="relative z-10 max-w-4xl ml-6 md:ml-16 mt-12 md:mt-16 flex flex-col items-start">
         <motion.h1 initial={{
         opacity: 0,
         y: 20
@@ -46,7 +50,7 @@ const HeroSection: React.FC = () => {
       }} transition={{
         duration: 0.6,
         delay: 0.2
-      }} className="mt-16 text-4xl md:text-6xl text-white text-left leading-tight font-bold">
+      }} className="mt-8 text-4xl md:text-6xl text-white text-left leading-tight font-bold">
           Подбор недвижимости<br />в 2 клика
         </motion.h1>
         
@@ -94,4 +98,5 @@ const HeroSection: React.FC = () => {
       </div>
     </section>;
 };
+
 export default HeroSection;
