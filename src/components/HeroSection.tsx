@@ -11,7 +11,6 @@ const HeroSection: React.FC = () => {
   const sectionRef = useRef<HTMLElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
   const textRef = useRef<HTMLDivElement>(null);
-  const uiSlotRef = useRef<HTMLDivElement>(null);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
@@ -40,31 +39,8 @@ const HeroSection: React.FC = () => {
     };
   }, []);
 
-  useEffect(() => {
-    const resize = () => {
-      if (!videoRef.current || !uiSlotRef.current) return;
-      const r = videoRef.current.getBoundingClientRect();
-
-      // Coefficients calculated for proper positioning
-      uiSlotRef.current.style.width = r.width * 0.55 + 'px';
-      uiSlotRef.current.style.height = r.width * 0.55 * 9 / 16 + 'px';
-      uiSlotRef.current.style.left = r.left + r.width * 0.225 + 'px';
-      uiSlotRef.current.style.top = r.top + r.height * 0.48 + 'px';
-    };
-
-    resize(); // Initial call
-    const obs = new ResizeObserver(resize);
-    obs.observe(document.body); // Watch for any layout changes
-
-    window.addEventListener('resize', resize);
-    return () => {
-      obs.disconnect();
-      window.removeEventListener('resize', resize);
-    };
-  }, []);
-
   return (
-    <section ref={sectionRef} id="hero" className="relative min-h-[100dvh] flex flex-col sm:flex-row items-center pt-20 bg-[#0E0E10] overflow-hidden">
+    <section ref={sectionRef} id="hero" className="relative min-h-[100dvh] flex flex-col items-center pt-20 bg-[#0E0E10] overflow-hidden">
       <video 
         ref={videoRef} 
         src="https://cdn.jsdelivr.net/gh/Desatyy/loopmind-assets@main/public/hero.mp4" 
@@ -77,30 +53,7 @@ const HeroSection: React.FC = () => {
         style={{
           pointerEvents: "none"
         }}
-        // Removed the invalid 'sizes' attribute
       />
-
-      {/* UI-слот – динамическое позиционирование через JS */}
-      <motion.div
-        ref={uiSlotRef}
-        initial={{ opacity: 0, y: 40 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.5 }}
-        transition={{ duration: 0.7, ease: "easeOut" }}
-        className="absolute overflow-hidden rounded-2xl ring-1 ring-white/10 shadow-[0_0_60px_-15px_rgb(0,0,0,0.6)] max-w-[420px] group z-[2]"
-      >
-        <img
-          src="https://cdn.jsdelivr.net/gh/Desatyy/loopmind-assets@main/public/mockup-desktop.png"
-          srcSet="https://cdn.jsdelivr.net/gh/Desatyy/loopmind-assets@main/public/mockup-desktop.png 1x, https://cdn.jsdelivr.net/gh/Desatyy/loopmind-assets@main/public/mockup-desktop.png 2x"
-          alt="Интерфейс LoopMind"
-          className="w-full h-full object-cover"
-          loading="lazy"
-          sizes="(max-width: 640px) 90vw, 50vw"
-        />
-
-        {/* Light glow on hover */}
-        <div className="pointer-events-none absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-300 bg-gradient-to-tr from-[#6B5CFF]/15 to-[#00E0FF]/15" />
-      </motion.div>
 
       <div ref={textRef} className="relative z-10 max-w-[min(88%,640px)] px-6 sm:px-12 mb-10 sm:mb-0 flex flex-col items-start">
         <motion.h1 
@@ -181,6 +134,27 @@ const HeroSection: React.FC = () => {
           </motion.button>
         </motion.div>
       </div>
+
+      {/* UI mockup image moved below the text content */}
+      <motion.div
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.5 }}
+        transition={{ duration: 0.7, ease: "easeOut" }}
+        className="relative z-10 mt-16 mb-12 max-w-[min(90%,420px)] overflow-hidden rounded-2xl ring-1 ring-white/10 shadow-[0_0_60px_-15px_rgb(0,0,0,0.6)] group"
+      >
+        <img
+          src="https://cdn.jsdelivr.net/gh/Desatyy/loopmind-assets@main/public/mockup-desktop.png"
+          srcSet="https://cdn.jsdelivr.net/gh/Desatyy/loopmind-assets@main/public/mockup-desktop.png 1x, https://cdn.jsdelivr.net/gh/Desatyy/loopmind-assets@main/public/mockup-desktop.png 2x"
+          alt="Интерфейс LoopMind"
+          className="w-full h-full object-cover"
+          loading="lazy"
+          sizes="(max-width: 640px) 90vw, 50vw"
+        />
+
+        {/* Light glow on hover */}
+        <div className="pointer-events-none absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-300 bg-gradient-to-tr from-[#6B5CFF]/15 to-[#00E0FF]/15" />
+      </motion.div>
     </section>
   );
 };
