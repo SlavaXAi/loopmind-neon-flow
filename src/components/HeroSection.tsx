@@ -135,13 +135,13 @@ const HeroSection: React.FC = () => {
         </motion.div>
       </div>
 
-      {/* UI mockup image moved below the text content */}
+      {/* UI mockup image moved further down with increased margin-top */}
       <motion.div
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.5 }}
         transition={{ duration: 0.7, ease: "easeOut" }}
-        className="relative z-10 mt-16 mb-12 max-w-[min(90%,420px)] overflow-hidden rounded-2xl ring-1 ring-white/10 shadow-[0_0_60px_-15px_rgb(0,0,0,0.6)] group"
+        className="relative z-10 mt-24 mb-12 max-w-[min(90%,420px)] overflow-hidden rounded-2xl ring-1 ring-white/10 shadow-[0_0_60px_-15px_rgb(0,0,0,0.6)] group"
       >
         <img
           src="https://cdn.jsdelivr.net/gh/Desatyy/loopmind-assets@main/public/mockup-desktop.png"
