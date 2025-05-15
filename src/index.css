@@ -145,13 +145,3 @@
     transform: translateY(0px);
   }
 }
-
-/* Add the custom pulse glow animation for the neon beam */
-@keyframes pulseGlow {
-  0%   { filter: blur(4px) hue-rotate(0deg);   }
-  100% { filter: blur(10px) hue-rotate(40deg); }
-}
-
-.animate-pulse {
-  animation: pulseGlow 3.6s ease-in-out infinite alternate;
-}
