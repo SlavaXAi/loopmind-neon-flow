@@ -1,20 +1,16 @@
-
 import React, { useRef, useEffect } from "react";
 import { motion } from "framer-motion";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Zap } from "lucide-react";
 gsap.registerPlugin(ScrollTrigger);
-
 const HeroSection: React.FC = () => {
   const sectionRef = useRef<HTMLElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
   const textRef = useRef<HTMLDivElement>(null);
-  
   useEffect(() => {
     const section = sectionRef.current;
     const textContent = textRef.current;
-    
     if (section && textContent) {
       gsap.fromTo(textContent, {
         y: 50,
@@ -31,44 +27,36 @@ const HeroSection: React.FC = () => {
         }
       });
     }
-    
     return () => {
       ScrollTrigger.getAll().forEach(t => t.kill());
     };
   }, []);
-  
   return <section ref={sectionRef} id="hero" className="relative min-h-screen flex items-start pt-20 bg-[#0E0E10] overflow-hidden">
       {/* Background image positioned behind the video */}
       <div className="absolute inset-0 z-0">
-        <img 
-          src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5" 
-          alt="Matrix-like background" 
-          className="w-full h-full object-cover opacity-50"
-        />
+        <img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5" alt="Matrix-like background" className="w-full h-full object-cover opacity-50" />
         <div className="absolute inset-0 bg-gradient-to-b from-[#0E0E10]/70 to-[#0E0E10]/90"></div>
       </div>
       
       <video ref={videoRef} src="https://cdn.jsdelivr.net/gh/Desatyy/loopmind-assets@main/public/hero.mp4" autoPlay muted loop playsInline preload="auto" className="absolute inset-0 w-full h-full object-cover z-[1]" style={{
-        pointerEvents: "none"
-      }} />
+      pointerEvents: "none"
+    }} />
 
       {/*  UI-макет в пустой рамке hero.mp4  */}
-      <motion.div
-        initial={{ opacity: 0, y: 40 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.5 }}
-        transition={{ duration: 0.7, ease: "easeOut" }}
-        className="absolute bottom-[6.2%] left-1/2 -translate-x-[35%]
-                w-[52%] aspect-[16/9] overflow-hidden rounded-2xl
-                ring-1 ring-white/10 shadow-[0_0_60px_-15px_rgb(0,0,0,0.6)]
-                group z-[2]"
-      >
-        <img
-          src="https://cdn.jsdelivr.net/gh/Desatyy/loopmind-assets@main/public/mockup-desktop.png"
-          alt="Интерфейс LoopMind"
-          className="w-full h-full object-cover"
-          loading="lazy"
-        />
+      <motion.div initial={{
+      opacity: 0,
+      y: 40
+    }} whileInView={{
+      opacity: 1,
+      y: 0
+    }} viewport={{
+      once: true,
+      amount: 0.5
+    }} transition={{
+      duration: 0.7,
+      ease: "easeOut"
+    }} className="absolute bottom-[0%] left-1/2 -translate-x-[60%] w-[50%] aspect-[16/9] overflow-hidden ring-1 ring-white/10 shadow-[0_0_60px_-15px_rgb(0,0,0,0.6)] group z-[2] my-0 px-0 mx-0 rounded-md py-0">
+        
 
         {/* лёгкое свечение при hover — опционально */}
         <div className="pointer-events-none absolute inset-0 opacity-0
@@ -134,5 +122,4 @@ const HeroSection: React.FC = () => {
       </div>
     </section>;
 };
-
 export default HeroSection;
