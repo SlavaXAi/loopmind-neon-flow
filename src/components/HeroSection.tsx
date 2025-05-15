@@ -39,20 +39,26 @@ const HeroSection: React.FC = () => {
 
   // Dynamic positioning of the UI mockup within the video frame
   useLayoutEffect(() => {
-    function placeSlot() {
-      if (!slotRef.current || !videoRef.current) return;
-      const rect = videoRef.current.getBoundingClientRect();
+    const resize = () => {
+      if (!videoRef.current || !slotRef.current) return;
+      const r = videoRef.current.getBoundingClientRect();
 
-      // Positioning coefficients
-      slotRef.current.style.width = rect.width * 0.5 + 'px';  // 50%
-      slotRef.current.style.height = rect.width * 0.5 * 9 / 16 + 'px';
-      slotRef.current.style.left = rect.left + rect.width * 0.12 + 'px'; // 12%
-      slotRef.current.style.top = rect.top + rect.height * 0.52 + 'px';  // 52%
-    }
+      // Improved positioning coefficients
+      slotRef.current.style.width = r.width * 0.55 + 'px';     // 55%
+      slotRef.current.style.height = r.width * 0.55 * 9 / 16 + 'px';
+      slotRef.current.style.left = r.left + r.width * 0.225 + 'px'; // center at 0.275
+      slotRef.current.style.top = r.top + r.height * 0.48 + 'px';  // 48%
+    };
 
-    placeSlot();
-    window.addEventListener('resize', placeSlot);
-    return () => window.removeEventListener('resize', placeSlot);
+    resize(); // initial call
+    const obs = new ResizeObserver(resize);
+    obs.observe(document.body); // detect any layout changes
+
+    window.addEventListener('resize', resize);
+    return () => {
+      obs.disconnect();
+      window.removeEventListener('resize', resize);
+    };
   }, []);
 
   return <section ref={sectionRef} id="hero" className="relative min-h-screen flex items-start pt-20 bg-[#0E0E10] overflow-hidden">
