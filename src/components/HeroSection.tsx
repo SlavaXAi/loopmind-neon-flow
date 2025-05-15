@@ -37,7 +37,7 @@ const HeroSection: React.FC = () => {
       pointerEvents: "none"
     }} />
 
-      <div ref={textRef} className="relative z-10 max-w-4xl ml-10 md:ml-24 mt-7 md:mt-[4rem] flex flex-col items-start">
+      <div ref={textRef} className="relative z-10 max-w-4xl ml-16 md:ml-32 mt-7 md:mt-[4rem] flex flex-col items-start">
         <motion.h1 initial={{
         opacity: 0,
         y: 20
