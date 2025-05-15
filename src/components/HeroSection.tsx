@@ -40,19 +40,15 @@ const HeroSection: React.FC = () => {
       pointerEvents: "none"
     }} />
 
-      <div ref={textRef} className="relative z-10 max-w-4xl ml-6 md:ml-16 mt-12 md:mt-16 flex flex-col items-start">
-        <motion.h1 initial={{
-        opacity: 0,
-        y: 20
-      }} animate={{
-        opacity: 1,
-        y: 0
-      }} transition={{
-        duration: 0.6,
-        delay: 0.2
-      }} className="mt-8 text-4xl md:text-6xl text-white text-left leading-tight font-bold">
-          Подбор недвижимости<br />в 2 клика
-        </motion.h1>
+    <div ref={textRef} className="relative z-10 max-w-4xl ml-6 md:ml-16 mt-0 md:mt-2 flex flex-col items-start">
+  <motion.h1
+    initial={{ opacity: 0, y: 20 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.6, delay: 0.2 }}
+    className="text-4xl md:text-6xl text-white text-left leading-tight font-bold"
+  >
+    Подбор недвижимости<br />в 2 клика
+  </motion.h1>
         
         <motion.p className="mt-6 text-xl md:text-2xl font-medium gradient-text animate-gradient-x" initial={{
         opacity: 0,
