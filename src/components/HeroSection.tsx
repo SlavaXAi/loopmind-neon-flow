@@ -1,3 +1,4 @@
+
 import React, { useRef, useEffect } from "react";
 import { motion } from "framer-motion";
 import { gsap } from "gsap";
@@ -36,7 +37,7 @@ const HeroSection: React.FC = () => {
       pointerEvents: "none"
     }} />
 
-      <div ref={textRef} className="relative z-10 max-w-4xl ml-6 md:ml-16 mt-16 md:mt-32 flex flex-col items-start">
+      <div ref={textRef} className="relative z-10 max-w-4xl ml-6 md:ml-16 mt-10 md:mt-[5.5rem] flex flex-col items-start">
         <motion.h1 initial={{
         opacity: 0,
         y: 20
