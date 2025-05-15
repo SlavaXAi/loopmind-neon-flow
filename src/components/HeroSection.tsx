@@ -35,12 +35,15 @@ const HeroSection: React.FC = () => {
     };
   }, []);
 
-  return <section ref={sectionRef} id="hero" className="relative min-h-screen flex items-center bg-[#0E0E10] overflow-hidden">
+  return <section
+  ref={sectionRef}
+  id="hero"
+  className="relative min-h-screen flex items-center bg-[#0E0E10] overflow-hidden pt-32 md:pt-56"
       <video ref={videoRef} src="https://cdn.jsdelivr.net/gh/Desatyy/loopmind-assets@main/public/hero.mp4" autoPlay muted loop playsInline preload="auto" className="absolute inset-0 w-full h-full object-cover z-0" style={{
       pointerEvents: "none"
     }} />
 
-    <div ref={textRef} className="relative z-10 max-w-4xl ml-6 md:ml-16 mt-0 md:mt-2 flex flex-col items-start">
+    <div ref={textRef} className="relative z-10 max-w-4xl ml-6 md:ml-16 mt-20 md:mt-40 flex flex-col items-start">
   <motion.h1
     initial={{ opacity: 0, y: 20 }}
     animate={{ opacity: 1, y: 0 }}
