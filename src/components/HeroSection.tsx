@@ -55,7 +55,7 @@ const HeroSection: React.FC = () => {
     }} transition={{
       duration: 0.7,
       ease: "easeOut"
-    }} className="absolute bottom-[0%] left-1/2 -translate-x-[60%] w-[39.2%] aspect-[16/9] overflow-hidden ring-1 ring-white/10 shadow-[0_0_60px_-15px_rgb(0,0,0,0.6)] group z-[2] my-0 px-0 mx-0 rounded-md py-0">
+    }} className="absolute bottom-[0%] left-1/2 -translate-x-[80%] w-[39.2%] aspect-[16/9] overflow-hidden ring-1 ring-white/10 shadow-[0_0_60px_-15px_rgb(0,0,0,0.6)] group z-[2] my-0 px-0 mx-0 rounded-md py-0">
         
 
         {/* лёгкое свечение при hover — опционально */}
