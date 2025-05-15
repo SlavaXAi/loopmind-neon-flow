@@ -38,19 +38,19 @@ const HeroSection: React.FC = () => {
   }, []);
   
   return <section ref={sectionRef} id="hero" className="relative min-h-screen flex items-start pt-20 bg-[#0E0E10] overflow-hidden">
-      <video ref={videoRef} src="https://cdn.jsdelivr.net/gh/Desatyy/loopmind-assets@main/public/hero.mp4" autoPlay muted loop playsInline preload="auto" className="absolute inset-0 w-full h-full object-cover z-0" style={{
+      {/* Background image positioned behind the video */}
+      <div className="absolute inset-0 z-0">
+        <img 
+          src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5" 
+          alt="Matrix-like background" 
+          className="w-full h-full object-cover opacity-50"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#0E0E10]/70 to-[#0E0E10]/90"></div>
+      </div>
+      
+      <video ref={videoRef} src="https://cdn.jsdelivr.net/gh/Desatyy/loopmind-assets@main/public/hero.mp4" autoPlay muted loop playsInline preload="auto" className="absolute inset-0 w-full h-full object-cover z-[1]" style={{
       pointerEvents: "none"
     }} />
-
-      {/* Added image container positioned absolutely */}
-      <div className="absolute right-0 top-0 w-[40%] h-[60%] z-[1] mt-32 mr-10">
-        <img 
-          src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d" 
-          alt="AI Real Estate Agent" 
-          className="w-full h-full object-cover rounded-lg shadow-xl opacity-80"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#0E0E10] to-transparent opacity-70"></div>
-      </div>
 
       <div ref={textRef} className="relative z-10 max-w-4xl ml-16 md:ml-32 mt-7 md:mt-[4rem] flex flex-col items-start">
         <motion.h1 initial={{
