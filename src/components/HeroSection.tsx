@@ -40,7 +40,7 @@ const HeroSection: React.FC = () => {
     <section 
       ref={sectionRef} 
       id="hero" 
-      className="relative min-h-screen flex items-center bg-[#0E0E10] overflow-hidden"
+      className="relative min-h-screen flex items-start pt-20 bg-[#0E0E10] overflow-hidden"
     >
       <video 
         ref={videoRef} 
@@ -58,7 +58,7 @@ const HeroSection: React.FC = () => {
 
       <div 
         ref={textRef} 
-        className="relative z-10 max-w-4xl ml-6 md:ml-16 mt-0 md:mt-2 flex flex-col items-start"
+        className="relative z-10 max-w-4xl ml-6 md:ml-16 mt-16 md:mt-32 flex flex-col items-start"
       >
         <motion.h1 
           initial={{ opacity: 0, y: 20 }} 
