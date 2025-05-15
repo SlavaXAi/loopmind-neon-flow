@@ -46,7 +46,7 @@ const HeroSection: React.FC = () => {
       }} transition={{
         duration: 0.6,
         delay: 0.2
-      }} className="text-4xl md:text-6xl text-white text-left leading-tight font-bold">
+      }} className="-translate-y-40 text-4xl md:text-6xl text-white text-left leading-tight font-bold">
           Подбор недвижимости<br />в 2 клика
         </motion.h1>
         
