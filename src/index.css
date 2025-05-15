@@ -88,6 +88,15 @@
 }
 
 @layer components {
+  .text-h1 { 
+    font-size: clamp(28px, 7vw, 64px); 
+    line-height: 1.15;
+  }
+  
+  .text-lead { 
+    font-size: clamp(16px, 4.5vw, 20px); 
+  }
+
   .gradient-text {
     @apply bg-gradient-to-r from-[#6B5CFF] via-[#8F8BFF] to-[#00E0FF] bg-clip-text text-transparent;
   }
@@ -110,6 +119,19 @@
   
   .card-feature {
     @apply bg-[#14141A] p-6 rounded-xl border border-[#292933] transition-all duration-300 hover:border-[#6B5CFF] hover:shadow-glow;
+  }
+}
+
+@layer utilities {
+  .px-safe { 
+    padding-left: env(safe-area-inset-left); 
+    padding-right: env(safe-area-inset-right); 
+  }
+
+  /* Ensure video/images don't overflow safe area */
+  video, img { 
+    max-width: 100%; 
+    height: auto; 
   }
 }
 
