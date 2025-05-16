@@ -102,21 +102,6 @@ const HowItWorksSection: React.FC = () => {
           />
         </div>
         
-        {/* Add the mockup image below feature cards */}
-        <motion.div 
-          className="mt-16 mb-20 flex justify-center"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.3 }}
-        >
-          <img 
-            src="/lovable-uploads/0bf66f0a-8f1c-47fb-9429-db2f1ab91e09.png" 
-            alt="Мобильные экраны приложения Loopmind AI" 
-            className="max-w-full lg:max-w-4xl mx-auto shadow-2xl rounded-xl"
-          />
-        </motion.div>
-
         <div className="mt-20 flex justify-center">
           <div className="relative overflow-hidden rounded-xl w-full max-w-3xl">
             <video
